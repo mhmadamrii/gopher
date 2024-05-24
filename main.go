@@ -1,19 +1,17 @@
 package main
 
 import (
-	"gopher/controllers"
-
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
-	r := gin.Default()
+	router := gin.Default()
 
-	public := r.Group("/api")
+	router.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "hello world",
+		})
+	})
 
-	public.POST("/register", controllers.Register)
-
-	r.Run("localhost:5000")
+	router.Run()
 }
-
-https://seefnasrul.medium.com/create-your-first-go-rest-api-with-jwt-authentication-in-gin-framework-dbe5bda72817
