@@ -1,3 +1,5 @@
+// data transfer object
+
 package dto
 
 type Paginate struct {
